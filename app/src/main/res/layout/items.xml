@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    cardCornerRadius="4dp"
+    tools:context=".Productos">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp">
+
+        <ImageView
+            android:id="@+id/foto1"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:padding="4dp" />
+
+        <TextView
+            android:id="@+id/Texto1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="150dp"
+            android:text="Nombre Producto"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />}
+
+        <TextView
+            android:id="@+id/Texto2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Texto1"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="10dp"
+            android:text="Descripcion Producto"
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:id="@+id/cantidadtxt"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="90dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingresa la Cantidad"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="128dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="150dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Añadir Carrito"
+            android:id="@+id/añadirtxt"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="160dp"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/likebtn"
+            android:background="@drawable/ic_favorite_border"
+            android:layout_marginTop="160dp"
+            android:layout_marginStart="350dp"
+            android:layout_marginLeft="350dp"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
