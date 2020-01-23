@@ -52,6 +52,7 @@ public class ServicioGet {
                 respuestas[i]=respuestas[i].substring(respuestas[i].indexOf("=")+1, fin);
                 datosres=respuestas[i]+";";
                 System.out.println(respuestas[i]);
+                
             }
             System.out.println("Esto manda "+json);
             //JSONArray jsonArray=null;
