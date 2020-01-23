@@ -51,9 +51,9 @@ public class Servicio extends AsyncTask<Void, Void, String>{
             url = new URL(wsURL);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             //crear el objeto json para enviar por POST
-            JSONObject parametrosPost= new JSONObject();
-            parametrosPost.put("correo",correo);
-            parametrosPost.put("contrasena",contrasena);
+            JSONObject parametrosGet= new JSONObject();
+            parametrosGet.put("correo",correo);
+            parametrosGet.put("contrasena",contrasena);
 
 
             //DEFINIR PARAMETROS DE CONEXION
@@ -67,7 +67,7 @@ public class Servicio extends AsyncTask<Void, Void, String>{
             //OBTENER EL RESULTADO DEL REQUEST
             OutputStream os = urlConnection.getOutputStream();
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-            writer.write(getPostDataString(parametrosPost));
+            writer.write(getGetDataString(parametrosGet));
             writer.flush();
             writer.close();
             os.close();
@@ -85,6 +85,7 @@ public class Servicio extends AsyncTask<Void, Void, String>{
                 }
                 in.close();
                 result= sb.toString();
+                System.out.println(result);
             }
             else{
                 result= new String("Error: "+ responseCode);
@@ -119,7 +120,7 @@ public class Servicio extends AsyncTask<Void, Void, String>{
 
     //FUNCIONES----------------------------------------------------------------------
     //Transformar JSON Obejct a String *******************************************
-    public String getPostDataString(JSONObject params) throws Exception {
+    public String getGetDataString(JSONObject params) throws Exception {
 
         StringBuilder result = new StringBuilder();
         boolean first = true;
