@@ -1,9 +1,13 @@
 package com.example.clientelib;
 
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +21,7 @@ public class Productos extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private Button carrito;
     private ImageButton like;
+    private MainActivity principal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +42,17 @@ public class Productos extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         carrito=(Button)findViewById(R.id.añadirtxt);
         like=(ImageButton)findViewById(R.id.likebtn);
+        String usuario= getFromSharedPreferences("usuario");
+        System.out.println("usuario de shared preferences"+usuario);
+        Toast.makeText(getApplicationContext(),"Bienvenid@"+usuario,Toast.LENGTH_LONG).show();
+        //System.out.println(principal.cargarPreferencias()); 
+    }
 
+    private String getFromSharedPreferences(String usuario) {
+        //SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref=getBaseContext().getSharedPreferences("guardarUsuario", MODE_PRIVATE);
+        String user= sharedPref.getString("usuario","");
+        return user;
     }
 
 
