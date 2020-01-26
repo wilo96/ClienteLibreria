@@ -1,11 +1,7 @@
 package com.example.clientelib;
 
+import android.content.SharedPreferences;
 import android.os.StrictMode;
-import android.util.Log;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -18,7 +14,7 @@ public class ServicioGet {
     public String getData(String correo, String contra)
     {
         String datosres = null;
-        String url ="http://192.168.100.17:8080/proyectoInterciclo/srv/Usuarios/buscarusu?correo="+correo+"&contra="+contra;
+        String url ="http://192.168.100.16:8080/proyectoInterciclo/srv/Usuarios/buscarusu?correo="+correo+"&contra="+contra;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
@@ -48,13 +44,15 @@ public class ServicioGet {
             json=response.toString();
             respuestas=json.substring(10,(json.length()-1)).split(",");
             for(int i =0; i<respuestas.length;i++){
+                System.out.println(respuestas.length);
                 int fin = respuestas[i].length();
                 respuestas[i]=respuestas[i].substring(respuestas[i].indexOf("=")+1, fin);
-                datosres=respuestas[i]+";";
+                datosres=datosres+respuestas[i]+";";
                 System.out.println(respuestas[i]);
                 
             }
             System.out.println("Esto manda "+json);
+            System.out.println("Esto esta pasando de parametros "+datosres);
             //JSONArray jsonArray=null;
             //jsonArray = new JSONArray(json);
 

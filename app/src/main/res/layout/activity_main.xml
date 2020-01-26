@@ -52,11 +52,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Coreo Electronico:"
-        tools:ignore="MissingConstraints"
-        android:layout_centerHorizontal="true"
         android:layout_above="@id/corrertxt"
-        />
+        android:layout_centerHorizontal="true"
+        android:text="Correo Electronico:"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"

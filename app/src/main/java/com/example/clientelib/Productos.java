@@ -45,7 +45,7 @@ public class Productos extends AppCompatActivity {
         String usuario= getFromSharedPreferences("usuario");
         System.out.println("usuario de shared preferences"+usuario);
         Toast.makeText(getApplicationContext(),"Bienvenid@"+usuario,Toast.LENGTH_LONG).show();
-        //System.out.println(principal.cargarPreferencias()); 
+        //System.out.println(principal.cargarPreferencias());
     }
 
     private String getFromSharedPreferences(String usuario) {
