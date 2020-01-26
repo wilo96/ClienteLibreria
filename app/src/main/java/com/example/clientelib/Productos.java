@@ -29,9 +29,9 @@ public class Productos extends AppCompatActivity {
         setContentView(R.layout.activity_productos);
 
         ArrayList<Items> listaItems = new ArrayList<>();
-        listaItems.add(new Items(R.drawable.ic_android1,"Linea 1","Linea 2"));
-        listaItems.add(new Items(R.drawable.ic_announcement,"Linea 3","Linea 4"));
-        listaItems.add(new Items(R.drawable.ic_android1,"Linea 5","Linea 6"));
+        //listaItems.add(new Items(R.drawable.ic_android1,"Linea 1","Linea 2"));
+        //listaItems.add(new Items(R.drawable.ic_announcement,"Linea 3","Linea 4"));
+       // listaItems.add(new Items(R.drawable.ic_android1,"Linea 5","Linea 6"));
 
         recyclerView = findViewById(R.id.listaProds);
         recyclerView.setHasFixedSize(true);

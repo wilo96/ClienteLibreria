@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 String values=sg.getData( correo.getText().toString(),contrasena.getText().toString());
                 if(values != null)
                 {
-                    Toast.makeText(getApplicationContext(),values,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),values,Toast.LENGTH_LONG).show();
                     Intent i = new Intent(v.getContext(),Productos.class);
                     startActivityForResult(i,0);
 
