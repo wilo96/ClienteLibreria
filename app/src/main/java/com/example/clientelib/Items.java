@@ -1,26 +1,65 @@
 package com.example.clientelib;
 
-public class Items {
-    private int mImageResources;
-    private String mText1;
-    private String mText2;
+import android.graphics.Bitmap;
+import android.view.Menu;
+import android.view.MenuInflater;
 
-    public Items(int imageResource, String text1, String text2)
+public class Items {
+    private Bitmap mImageResources;
+    private String titulo;
+    private String autor;
+    private String descuento;
+    private String stock, id, precio, editorial;
+    private String cantidad;
+
+
+    public Items(Bitmap imageResource, String titulos, String autors, String ids, String editorials, String precios, String stocks, String descuentos)
     {
         mImageResources=imageResource;
-        mText1=text1;
-        mText2=text2;
+        titulo =titulos;
+        autor =autors;
+        id=ids;
+        editorial=editorials;
+        precio=precios;
+        stock=stocks;
+        descuento=descuentos;
+
     }
-    public int getmImageResources() {
+
+    public Bitmap getmImageResources() {
         return mImageResources;
     }
 
-        public String getmText1 () {
-            return mText1;
+        public String getTitulo() {
+            return titulo;
         }
 
-        public String getmText2 ()
+        public String getAutor()
         {
-            return mText2;
+            return autor;
         }
+        public String getId(){
+            return id;
+        }
+        public String getDescuento(){
+            return descuento;
+        }
+        public String getStock(){
+            return stock;
+        }
+        public String getPrecio(){
+            return precio;
+        }
+        public String getEditorial(){
+            return editorial;
+        }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
+
 }

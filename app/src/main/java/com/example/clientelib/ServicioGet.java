@@ -14,11 +14,12 @@ import java.net.URL;
 import java.util.List;
 
 public class ServicioGet {
+    String direc="http://192.168.1.112";
 
     public String getData(String correo, String contra)
     {
         String datosres = null;
-        String url ="http://192.168.100.19:8080/proyectoInterciclo/srv/Usuarios/buscarusu?correo="+correo+"&contra="+contra;
+        String url =direc+":8080/proyectoInterciclo/srv/Usuarios/buscarusu?correo="+correo+"&contra="+contra;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
@@ -75,7 +76,7 @@ public class ServicioGet {
     public String getDataProds()
     {
         String datosres = null;
-        String url ="http://192.168.100.19:8080/proyectoInterciclo/srv/libros/listLibros";
+        String url =direc+":8080/proyectoInterciclo/srv/libros/listLibros";
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
