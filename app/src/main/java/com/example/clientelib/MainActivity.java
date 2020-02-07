@@ -2,7 +2,9 @@ package com.example.clientelib;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,11 +40,22 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(correo.getText().toString()+"   "+contrasena.getText().toString());
                 sg.getData( correo.getText().toString(),contrasena.getText().toString());
                 String values=sg.getData( correo.getText().toString(),contrasena.getText().toString());
+                System.out.println("Esto dice que esta mandando "+values);
+                String cedula=values.substring(4,14);
+                String nombre=values.substring(15,values.indexOf(";",15));
                 if(values != null)
                 {
+
                     //Toast.makeText(getApplicationContext(),values,Toast.LENGTH_LONG).show();
                     Intent i = new Intent(v.getContext(),Productos.class);
-                    startActivityForResult(i,0);
+                    SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("nombre", nombre);
+                    editor.putString("cedula", cedula);
+                    editor.commit();
+                    //i.putExtra("cedula",cedula);
+                    //i.putExtra("nombre",nombre);
+                    startActivity(i);
 
                 }
                 else{

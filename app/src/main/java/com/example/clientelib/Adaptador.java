@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
     int num=1;
     private ArrayList<Items> listaItems;
+    private ServicioGet sg= new ServicioGet();
 
 
 
@@ -90,6 +91,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
                 double subtL = valL*cant;
 
                 System.out.println("Esta es la posicion que estaba seleccionando "+posicion+" "+cant+" "+desc+" "+prec+" "+String.format("%.2f", valL)+" "+String.format("%.2f", subtL));
+                sg.carrito(posicion,cantidad,precio,descuento,String.valueOf(subtL));
             }
         });
 

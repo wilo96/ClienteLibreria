@@ -8,4 +8,18 @@
         android:title="Item"
         android:visible="true"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/Direccion"
+        android:enabled="true"
+        android:icon="@drawable/ic_map"
+        android:title="Item"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/Tarjeta"
+        android:enabled="true"
+        android:icon="@drawable/ic_payment"
+        android:title="Item"
+        android:visible="true"
+        app:showAsAction="always" />
 </menu>

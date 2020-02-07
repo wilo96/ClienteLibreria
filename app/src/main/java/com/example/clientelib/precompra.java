@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -47,6 +48,7 @@ public class precompra extends AppCompatActivity {
     URL url;
     Bitmap bit;
     private  int num=1;
+    int aceptarnada=0;
 
 
     @Override
@@ -78,7 +80,32 @@ public class precompra extends AppCompatActivity {
             {
                 System.out.println(parteB[z]);
             }
-            listaItems.add(new ItemsPre(parteB[4].substring(1,parteB[4].length()-1),parteB[6],parteB[2],parteB[1],parteB[3],String.valueOf(Integer.parseInt(parteB[1])*Double.valueOf(parteB[2]))));
+            try {
+                listaItems.add(new ItemsPre(parteB[4].substring(1, parteB[4].length() - 1), parteB[6], parteB[2], parteB[1], parteB[3], String.valueOf(Integer.parseInt(parteB[1]) * Double.valueOf(parteB[2]))));
+            }catch(Exception e)
+            {
+                AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+                dialogo1.setTitle("Aviso");
+                dialogo1.setMessage("Aún no hay productos seleccionados");
+                dialogo1.setCancelable(true);
+                dialogo1.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // sg.carrito(id.getText().toString(),cantidad.getText().toString(),precio.getText().toString(),descuento.getText().toString(),subtotal.getText().toString());
+                        aceptarnada=1;
+                       // SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
+                       // String cedu = prefs.getString("cedula","");
+                      //  sg.precompraConf(cedu,1,1);
+                      //  Toast.makeText(getApplicationContext(), cedu, Toast.LENGTH_LONG).show();
+
+                    }
+                });
+                if(aceptarnada==1) {
+                    Intent in = new Intent(this, Productos.class);
+                    startActivityForResult(in, 0);
+                }
+                dialogo1.show();
+            }
 
 
            //listaItems.add(new ItemsPre(parteB[4].substring(1,parteB[4].length()-1),parteB[6],parteB[2],parteB[1], parteB[7]));
@@ -120,7 +147,7 @@ public class precompra extends AppCompatActivity {
         inflater.inflate(R.menu.confirmarmenu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
+int aceptar=0;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
@@ -135,8 +162,13 @@ public class precompra extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         // sg.carrito(id.getText().toString(),cantidad.getText().toString(),precio.getText().toString(),descuento.getText().toString(),subtotal.getText().toString());
 
-                        //Aqui debo buscar el contenido de mi tabla carrito y recorrerlo, al recorrerlo, debo ir insertando en factura detalle y a su vez crear una factura caecera, luego de insertar
-                        //todo genero un llamado al servicio delete from de mi tabla para borrar el contenido de carrito
+                        SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
+                        String cedu = prefs.getString("cedula","");
+                        sg.precompraConf(cedu,1,1);
+
+
+                        Toast.makeText(getApplicationContext(), cedu, Toast.LENGTH_LONG).show();
+                        ventana();
 
                     }
                 }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -145,6 +177,7 @@ public class precompra extends AppCompatActivity {
 
                     }
                 });
+
                 dialogo1.show();
                 return true;
 
@@ -157,7 +190,13 @@ public class precompra extends AppCompatActivity {
         //SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences sharedPref=getBaseContext().getSharedPreferences("guardarUsuario", MODE_PRIVATE);
         String user= sharedPref.getString("usuario","");
+
         return user;
+    }
+
+    private void ventana(){
+        Intent i = new Intent(this, Productos.class);
+        startActivityForResult(i, 0);
     }
 
 

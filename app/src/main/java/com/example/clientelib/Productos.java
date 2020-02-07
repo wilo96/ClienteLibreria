@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -65,6 +66,7 @@ public class Productos extends AppCompatActivity {
         String usuario= getFromSharedPreferences("usuario");
         System.out.println("usuario de shared preferences"+usuario);
         Toast.makeText(getApplicationContext(),"Bienvenid@"+usuario,Toast.LENGTH_LONG).show();
+
         //System.out.println(principal.cargarPreferencias()); 
     }
 
@@ -81,8 +83,28 @@ public class Productos extends AppCompatActivity {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.Precompra:
-                Intent i = new Intent(this,precompra.class);
-                startActivityForResult(i,0);
+                try {
+                    Intent i = new Intent(this, precompra.class);
+                    startActivityForResult(i, 0);
+                }catch(Exception e){
+
+                }
+                return true;
+            case R.id.Direccion:
+                try {
+                    Intent i = new Intent(this, direcciones.class);
+                    startActivityForResult(i, 0);
+                }catch(Exception e){
+
+                }
+                return true;
+            case R.id.Tarjeta:
+                try {
+                    Intent i = new Intent(this, Tarjetas.class);
+                    startActivityForResult(i, 0);
+                }catch(Exception e){
+
+                }
                 return true;
 
             default:
@@ -92,8 +114,10 @@ public class Productos extends AppCompatActivity {
 
     private String getFromSharedPreferences(String usuario) {
         //SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences sharedPref=getBaseContext().getSharedPreferences("guardarUsuario", MODE_PRIVATE);
-        String user= sharedPref.getString("usuario","");
+        //SharedPreferences sharedPref=getBaseContext().getSharedPreferences("guardarUsuario", MODE_PRIVATE);
+        //String user= sharedPref.getString("usuario","");
+        SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
+        String user = prefs.getString("nombre","");
         return user;
     }
 

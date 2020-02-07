@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.List;
 
 public class ServicioGet {
-    String direc="http://192.168.1.112";
+    String direc="http://192.168.1.106";
 
     public String getData(String correo, String contra)
     {
@@ -128,5 +128,7 @@ public class ServicioGet {
         return json;
 
     }
+
+
 
 }
