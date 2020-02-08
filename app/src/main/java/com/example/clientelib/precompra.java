@@ -144,7 +144,7 @@ public class precompra extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.confirmarmenu, menu);
+        inflater.inflate(R.menu.directarjmenu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 int aceptar=0;
@@ -152,7 +152,10 @@ int aceptar=0;
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
-            case R.id.confiCompra:
+            case R.id.directarj:
+                //sg.getDirecciones();
+                    ventana();
+                /*
                 AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
                 dialogo1.setTitle("Aviso");
                 dialogo1.setMessage("¿Desea confirmar la compra?");
@@ -178,7 +181,7 @@ int aceptar=0;
                     }
                 });
 
-                dialogo1.show();
+                dialogo1.show();*/
                 return true;
 
             default:
@@ -195,7 +198,7 @@ int aceptar=0;
     }
 
     private void ventana(){
-        Intent i = new Intent(this, Productos.class);
+        Intent i = new Intent(this, directarj.class);
         startActivityForResult(i, 0);
     }
 

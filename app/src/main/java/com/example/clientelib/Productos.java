@@ -47,6 +47,7 @@ public class Productos extends AppCompatActivity {
         compartir=(ImageButton)findViewById(R.id.compartirbtn);
 
 
+
         cantidad=(TextView)findViewById(R.id.cantidadtxt);
 
         ArrayList<Items> listaItems = new ArrayList<>();
@@ -65,7 +66,7 @@ public class Productos extends AppCompatActivity {
 
         String usuario= getFromSharedPreferences("usuario");
         System.out.println("usuario de shared preferences"+usuario);
-        Toast.makeText(getApplicationContext(),"Bienvenid@"+usuario,Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Bienvenid@ "+usuario,Toast.LENGTH_LONG).show();
 
         //System.out.println(principal.cargarPreferencias()); 
     }

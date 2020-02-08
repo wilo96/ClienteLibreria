@@ -41,8 +41,10 @@ public class MainActivity extends AppCompatActivity {
                 sg.getData( correo.getText().toString(),contrasena.getText().toString());
                 String values=sg.getData( correo.getText().toString(),contrasena.getText().toString());
                 System.out.println("Esto dice que esta mandando "+values);
+                String datospersona[]=values.split(";");
                 String cedula=values.substring(4,14);
                 String nombre=values.substring(15,values.indexOf(";",15));
+                String telefono = datospersona[2];
                 if(values != null)
                 {
 
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("nombre", nombre);
                     editor.putString("cedula", cedula);
+                    editor.putString("telefono",telefono);
                     editor.commit();
                     //i.putExtra("cedula",cedula);
                     //i.putExtra("nombre",nombre);
@@ -67,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+    }
+    public void comparto(){
 
     }
 }

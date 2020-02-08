@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".directarj">
+
+
+    <TextView
+        android:id="@+id/texto_Direccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="48dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="16dp"
+        android:paddingLeft="15dp"
+        android:text="Dirección"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Spinner
+        android:id="@+id/spinner_Direccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:paddingBottom="18dp"
+        android:paddingTop="26dp"
+        android:layout_below="@+id/texto_Direccion"
+
+    />
+
+    <TextView
+        android:id="@+id/texto_tarjeta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texto_Direccion"
+        android:layout_marginTop="50dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="16dp"
+        android:text="Tarjeta"
+        android:paddingLeft="15dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Spinner
+        android:id="@+id/spinner_Tarjeta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/texto_tarjeta"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/texto_tarjeta"
+        android:layout_below="@+id/texto_tarjeta"
+        android:paddingBottom="18dp"
+        android:paddingTop="26dp"/>
+</RelativeLayout>

@@ -43,7 +43,7 @@ public class direcciones extends AppCompatActivity {
                 numcasa.setText("");
                 ciud.setText("");
                 prov.setText("");
-                ventana();
+                //ventana();
             }
         });
     }

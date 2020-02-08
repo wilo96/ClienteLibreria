@@ -2,6 +2,7 @@ package com.example.clientelib;
 
 import android.app.ActionBar;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,11 +23,12 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
+public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder>  {
     int num=1;
     private ArrayList<Items> listaItems;
+    private MainActivity ma= new MainActivity();
     private ServicioGet sg= new ServicioGet();
-
+    public Context con;
 
 
 
@@ -64,6 +67,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.items, parent, false);
         ViewHolder vh= new ViewHolder(v);
         return vh;
+
     }
 
     @Override
@@ -92,6 +96,17 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
 
                 System.out.println("Esta es la posicion que estaba seleccionando "+posicion+" "+cant+" "+desc+" "+prec+" "+String.format("%.2f", valL)+" "+String.format("%.2f", subtL));
                 sg.carrito(posicion,cantidad,precio,descuento,String.valueOf(subtL));
+            }
+        });
+        holder.compartir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, "El mejor blog de android http://javaheros.blogspot.pe/");
+                con.startActivity(Intent.createChooser(intent, "Share with"));*/
+                Intent intent = new Intent (v.getContext(), compartir.class);
+                v.getContext().startActivity(intent);
             }
         });
 

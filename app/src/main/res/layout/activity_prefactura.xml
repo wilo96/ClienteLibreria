@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:stretchColumns="1"
+    tools:context=".prefactura"
+    android:id="@+id/tablapre">
+    <TableRow android:background="#128675">
+
+        <TextView
+            android:layout_column="0"
+            android:padding="3dip"
+            android:text="Cliente"
+            android:textColor="@android:color/white" />
+
+    </TableRow>
+    <TableRow android:id="@+id/cabeced">
+        <TextView
+            android:layout_column="0"
+            android:padding="3dip"
+            android:text="Cedula: " />
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:id="@+id/ceducabtxt"
+            android:text="0104319280" />
+    </TableRow>
+    <TableRow android:id="@+id/cabenom">
+        <TextView
+            android:layout_column="0"
+            android:padding="3dip"
+            android:text="Nombre: " />
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:id="@+id/nomcabetxt"
+            android:text="Wilson Calle" />
+    </TableRow>
+    <TableRow android:id="@+id/cabetelf">
+        <TextView
+            android:layout_column="0"
+            android:padding="3dip"
+            android:text="Telefono: " />
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:id="@+id/telfcabetxt"
+            android:text="0983870535" />
+    </TableRow>
+    <TableRow android:id="@+id/cabedir">
+        <TextView
+            android:layout_column="0"
+            android:padding="3dip"
+            android:text="Dirección: " />
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:id="@+id/dircabetxt"
+            android:text="Totoracocha" />
+    </TableRow>
+
+
+
+    <TableLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/productosdetalles"
+        android:stretchColumns="*">
+        <TableRow android:background="#128675">
+
+            <TextView
+                android:layout_column="0"
+                android:padding="3dip"
+                android:text="Producto"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="Cantidad"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:layout_column="2"
+                android:padding="3dip"
+                android:text="Precio"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:layout_column="3"
+                android:padding="3dip"
+                android:text="Descuento"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_column="4"
+                android:padding="3dip"
+                android:text="Subtotal"
+                android:textColor="@android:color/white" />
+        </TableRow>
+    </TableLayout>
+
+
+
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="Subtotal"
+            android:textColor="#128675" />
+
+        <TextView
+            android:id="@+id/subtotaltxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:padding="3dip"
+            android:text="$43,4" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView77"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="Descuento"
+            android:textColor="#128675" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:id="@+id/descuentotxt"
+            android:padding="3dip"
+            android:text="$20"/>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="Costo envío"
+            android:textColor="#128675" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:id="@+id/enviotxt"
+            android:padding="3dip"
+            android:text="10" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="Total"
+            android:textColor="#128675" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:padding="3dip"
+            android:id="@+id/totaltxt"
+            android:text="$48,4" />
+    </TableRow>
+
+</TableLayout>
