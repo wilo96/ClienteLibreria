@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/listar"
+        android:enabled="true"
+        android:icon="@drawable/ic_format_list"
+        android:title="Item"
+        android:visible="true"
+        app:showAsAction="always" />
+</menu>

@@ -36,6 +36,41 @@
             android:layout_marginStart="80dp"
             android:layout_marginLeft="80dp"
             android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/idcar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Id"
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="170dp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Descuento"
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="270dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="desc"
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,6 +148,14 @@
             android:id="@+id/elimbtn"
             android:layout_marginStart="280dp"
             android:layout_marginLeft="280dp"
+            android:layout_marginTop="200dp"/>
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_refresh_black_24dp"
+            android:id="@+id/modifbtn"
+            android:layout_marginStart="220dp"
+            android:layout_marginLeft="220dp"
             android:layout_marginTop="200dp"/>
     </RelativeLayout>
 

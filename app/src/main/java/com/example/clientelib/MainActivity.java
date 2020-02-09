@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println(correo.getText().toString()+"   "+contrasena.getText().toString());
+                if(sg.getData( correo.getText().toString(),contrasena.getText().toString())!= null)
+                {
                 sg.getData( correo.getText().toString(),contrasena.getText().toString());
                 String values=sg.getData( correo.getText().toString(),contrasena.getText().toString());
                 System.out.println("Esto dice que esta mandando "+values);
@@ -63,11 +65,21 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
 
+                }}
+                else{
+                    Toast.makeText(getApplicationContext(),"Usuario no Existe o Contraseña/correo mal Ingresados",Toast.LENGTH_LONG).show();
                 }
 
 
                 //servicio.execute();
 
+            }
+        });
+        registrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),registrarusuario.class);
+                startActivity(i);
             }
         });
 

@@ -1,21 +1,44 @@
 package com.example.clientelib;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class direcciones extends AppCompatActivity {
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+
+public class direcciones extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
     private EditText calleprin, callesec, numcasa, prov, ciud;
     private Button nuevabtn;
     private ServicioGet sg;
+    String direcc;
+    JSONObject jsonOb;
+    String pro[];
+    URL url;
+    Bitmap bit;
+    private  int num=1;
+    Items it;
 
 
     @Override
@@ -46,9 +69,40 @@ public class direcciones extends AppCompatActivity {
                 //ventana();
             }
         });
+
+
+
+
+
     }
     private void ventana(){
         Intent i = new Intent(this, Productos.class);
         startActivityForResult(i, 0);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.listamenu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.listar:
+                try {
+                    Intent i = new Intent(this, listaDirec.class);
+                    startActivityForResult(i, 0);
+                }catch(Exception e){
+
+                }
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

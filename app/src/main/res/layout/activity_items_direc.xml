@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    cardCornerRadius="4dp"
+    android:fitsSystemWindows="true"
+    tools:context=".listaDirec">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp">
+
+        <EditText
+            android:id="@+id/callep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="Calle Principal"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
+        <EditText
+            android:id="@+id/calles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
+            android:text="Calle Secundaria"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
+        <EditText
+            android:id="@+id/numcasa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:gravity="center"
+            android:text="Numero Casa"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
+        <EditText
+            android:id="@+id/prov"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:text="Provincia"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
+        <EditText
+            android:id="@+id/ciudad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:gravity="center"
+            android:text="Ciudad"
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iddir"
+            android:text="Id"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID#"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_delete"
+            android:id="@+id/elimbtnlistd"
+            android:layout_marginStart="280dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="310dp"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

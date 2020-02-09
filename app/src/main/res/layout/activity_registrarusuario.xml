@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registrarusuario">
+
+    <EditText
+        android:id="@+id/correoregtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView"/>
+
+    <EditText
+        android:id="@+id/contraseñregatxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:password="true"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text=""
+        tools:ignore="MissingConstraints"
+        android:layout_below="@id/textView2"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
+        android:id="@+id/registrobtnreg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        tools:ignore="MissingConstraints"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/telfregtxt"
+        />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nombresregtxt"
+        android:layout_centerHorizontal="true"
+        android:text="Correo Electronico:"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contraseña:"
+        tools:ignore="MissingConstraints"
+        android:layout_below="@id/correoregtxt"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/reptxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Repita Contraseña:"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/contraseñregatxt"/>
+    <EditText
+        android:id="@+id/repitcontraseñatxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:password="true"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text=""
+        tools:ignore="MissingConstraints"
+        android:layout_below="@id/reptxt"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+    <TextView
+        android:id="@+id/nombrestxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingrese sus Nombres:"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/cedregtxt"/>
+    <EditText
+        android:id="@+id/nombresregtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/nombrestxt"/>
+    <TextView
+        android:id="@+id/cedtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingrese su Cedula:"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        />
+    <EditText
+        android:id="@+id/cedregtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/cedtxt"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingrese Telefono:"
+        android:id="@+id/telftxt"
+        android:layout_below="@id/repitcontraseñatxt"
+        android:layout_centerHorizontal="true"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/telfregtxt"
+        android:layout_below="@id/telftxt"/>
+
+
+
+</RelativeLayout>

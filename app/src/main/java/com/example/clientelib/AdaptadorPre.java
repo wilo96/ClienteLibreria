@@ -24,24 +24,28 @@ import java.util.ArrayList;
 public class AdaptadorPre extends RecyclerView.Adapter<AdaptadorPre.ViewHolder> {
     int num=1;
     private ArrayList<ItemsPre> listaItems;
+    private ServicioGet sg = new ServicioGet();
 
 
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public EditText cantidad;
-        public TextView titulo,id,precio, subtotal;
-        public ImageButton eliminar;
+        public TextView titulo,id,precio, subtotal, idcar, descu;
+        public ImageButton eliminar, modificar;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             titulo =itemView.findViewById(R.id.nombre);
             id=itemView.findViewById(R.id.idtxt2);
+            idcar=itemView.findViewById(R.id.idcar);
             precio=itemView.findViewById(R.id.preciotxt2);
             eliminar=itemView.findViewById(R.id.elimbtn);
             cantidad=itemView.findViewById(R.id.cantidadtxt2);
             subtotal=itemView.findViewById(R.id.subtotal);
+            modificar=itemView.findViewById(R.id.modifbtn);
+            descu=itemView.findViewById(R.id.desc);
 
         }
     }
@@ -66,8 +70,26 @@ public class AdaptadorPre extends RecyclerView.Adapter<AdaptadorPre.ViewHolder> 
         holder.titulo.setText(curentItem.getTitulo());
         holder.precio.setText(String.valueOf(Double.valueOf(curentItem.getPrecio()) - (Double.valueOf(curentItem.getPrecio())*(Double.valueOf(curentItem.getDescuento())/100))));
         holder.id.setText(curentItem.getId());
+        holder.idcar.setText(curentItem.getIdcar());
         holder.cantidad.setText(curentItem.getCantidad());
+        holder.descu.setText(curentItem.getDescuento());
         holder.subtotal.setText(String.valueOf(Double.valueOf(Double.valueOf(curentItem.getPrecio()) - (Double.valueOf(curentItem.getPrecio())*(Double.valueOf(curentItem.getDescuento())/100)))*Double.valueOf(curentItem.getCantidad())));
+        holder.eliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sg.elimitcarrito(holder.idcar.getText().toString());
+                Intent intent = new Intent (v.getContext(), precompra.class);
+                v.getContext().startActivity(intent);
+            }
+        });
+        holder.modificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sg.modifcarrito(holder.idcar.getText().toString(),holder.cantidad.getText().toString(),holder.precio.getText().toString(),holder.descu.getText().toString());
+                Intent intent = new Intent (v.getContext(), precompra.class);
+                v.getContext().startActivity(intent);
+            }
+        });
 
     }
 

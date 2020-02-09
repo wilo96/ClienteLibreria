@@ -130,6 +130,119 @@ public class ServicioGet {
 
     }
 
+
+    public String getDataDirec()
+    {
+        String datosres = null;
+        String url =direc+":8080/proyectoInterciclo/srv/libros/listadirec";
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        URL urlc = null;
+        HttpURLConnection con;
+        String json ="";
+        JSONObject jsonOb;
+        try{
+            urlc= new URL(url);
+            con = (HttpURLConnection) urlc.openConnection();
+
+            con.setRequestMethod("GET");
+
+            con.connect();
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+            String inutline;
+            StringBuffer response = new StringBuffer();
+
+
+            String respuestas[];
+
+            while((inutline = br.readLine()) != null)
+            {
+                response.append(inutline);
+            }
+
+            json=response.toString();
+            respuestas=json.substring(10,(json.length()-1)).split(",");
+            /*for(int i =0; i<respuestas.length;i++){
+                int fin = respuestas[i].length();
+                respuestas[i]=respuestas[i].substring(respuestas[i].indexOf("=")+1, fin);
+                datosres=datosres+respuestas[i]+";";
+                System.out.println(respuestas[i]);
+
+            }*/
+            System.out.println("Esto manda "+json);
+            /*JSONArray jsonArray = new JSONArray(json);
+
+            for(int i = 0; i< jsonArray.length();i++){
+                jsonOb = jsonArray.getJSONObject(i);
+                Log.d("Salida del Select ",jsonOb.optString("titulo"));
+                System.out.println("------------------------- "+jsonOb.toString());
+            }*/
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return json;
+
+    }
+
+    public String getDataTarj()
+    {
+        String datosres = null;
+        String url =direc+":8080/proyectoInterciclo/srv/libros/listatarj";
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        URL urlc = null;
+        HttpURLConnection con;
+        String json ="";
+        JSONObject jsonOb;
+        try{
+            urlc= new URL(url);
+            con = (HttpURLConnection) urlc.openConnection();
+
+            con.setRequestMethod("GET");
+
+            con.connect();
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+            String inutline;
+            StringBuffer response = new StringBuffer();
+
+
+            String respuestas[];
+
+            while((inutline = br.readLine()) != null)
+            {
+                response.append(inutline);
+            }
+
+            json=response.toString();
+            respuestas=json.substring(10,(json.length()-1)).split(",");
+            /*for(int i =0; i<respuestas.length;i++){
+                int fin = respuestas[i].length();
+                respuestas[i]=respuestas[i].substring(respuestas[i].indexOf("=")+1, fin);
+                datosres=datosres+respuestas[i]+";";
+                System.out.println(respuestas[i]);
+
+            }*/
+            System.out.println("Esto manda "+json);
+            /*JSONArray jsonArray = new JSONArray(json);
+
+            for(int i = 0; i< jsonArray.length();i++){
+                jsonOb = jsonArray.getJSONObject(i);
+                Log.d("Salida del Select ",jsonOb.optString("titulo"));
+                System.out.println("------------------------- "+jsonOb.toString());
+            }*/
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return json;
+
+    }
+
     public ArrayList<String> getDirecciones()
     {
         String datosres = null;

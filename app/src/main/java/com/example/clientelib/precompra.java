@@ -81,7 +81,7 @@ public class precompra extends AppCompatActivity {
                 System.out.println(parteB[z]);
             }
             try {
-                listaItems.add(new ItemsPre(parteB[4].substring(1, parteB[4].length() - 1), parteB[6], parteB[2], parteB[1], parteB[3], String.valueOf(Integer.parseInt(parteB[1]) * Double.valueOf(parteB[2]))));
+                listaItems.add(new ItemsPre(parteB[4].substring(1, parteB[4].length() - 1), parteB[6], parteB[2], parteB[1], parteB[3], String.valueOf(Integer.parseInt(parteB[1]) * Double.valueOf(parteB[2])),parteB[0].replace("[","")));
             }catch(Exception e)
             {
                 AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);

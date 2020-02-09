@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.clientelib">
 
@@ -12,7 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-        <activity android:name=".ItemsPre"></activity>
+        <activity android:name=".registrarusuario"></activity>
+        <activity android:name=".itemsTarjeta" />
+        <activity android:name=".itemsDirec" />
+        <activity android:name=".tarjetamod" />
+        <activity android:name=".tarjetalist" />
+        <activity android:name=".direcmod" />
+        <activity android:name=".listaDirec" />
+        <activity android:name=".compartir" />
+        <activity android:name=".prefactura" />
+        <activity android:name=".directarj" />
+        <activity android:name=".Tarjetas" />
+        <activity android:name=".direcciones" />
+        <activity android:name=".ItemsPre" />
         <activity android:name=".precompra" />
         <activity
             android:name=".Productos"
