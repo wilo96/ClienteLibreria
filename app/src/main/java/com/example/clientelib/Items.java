@@ -11,9 +11,10 @@ public class Items {
     private String descuento;
     private String stock, id, precio, editorial;
     private String cantidad;
+    private String cedula;
 
 
-    public Items(Bitmap imageResource, String titulos, String autors, String ids, String editorials, String precios, String stocks, String descuentos)
+    public Items(Bitmap imageResource, String titulos, String autors, String ids, String editorials, String precios, String stocks, String descuentos, String cedulas)
     {
         mImageResources=imageResource;
         titulo =titulos;
@@ -23,6 +24,7 @@ public class Items {
         precio=precios;
         stock=stocks;
         descuento=descuentos;
+        cedula=cedulas;
 
     }
 
@@ -61,5 +63,5 @@ public class Items {
     public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
-
+    public String getCedula(){return this.cedula=cedula;}
 }

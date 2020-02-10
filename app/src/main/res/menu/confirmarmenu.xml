@@ -8,4 +8,11 @@
         android:title="Item"
         android:visible="true"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/salirco"
+        android:enabled="true"
+        android:icon="@drawable/ic_exit"
+        android:title="Item"
+        android:visible="true"
+        app:showAsAction="always" />
 </menu>

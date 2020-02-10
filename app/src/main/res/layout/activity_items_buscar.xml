@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    cardCornerRadius="4dp"
-    android:fitsSystemWindows="true"
-    tools:context=".Productos">
+    tools:context=".ResBuscar">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,12 +13,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cedulacli"
+            android:id="@+id/cedulaclib"
             android:textColor="@android:color/white"
             android:visibility="invisible"/>
 
         <ImageView
-            android:id="@+id/foto1"
+            android:id="@+id/foto1b"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginStart="130dp"
@@ -28,7 +26,7 @@
             android:padding="4dp" />
 
         <TextView
-            android:id="@+id/Texto1"
+            android:id="@+id/Texto1b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="130dp"
@@ -38,10 +36,10 @@
             android:textSize="30dp" />}
 
         <TextView
-            android:id="@+id/Texto2"
+            android:id="@+id/Texto2b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Texto1"
+            android:layout_below="@+id/Texto1b"
             android:layout_marginStart="165dp"
             android:layout_marginLeft="165dp"
             android:layout_marginTop="10dp"
@@ -51,7 +49,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Texto1"
+            android:layout_below="@+id/Texto1b"
             android:layout_marginStart="50dp"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
@@ -60,15 +58,15 @@
             android:textSize="20dp" />
 
         <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/stocktxt"
-        android:text="Stock"
-        android:textSize="20dp"
-        android:textColor="@android:color/black"
-        android:layout_marginStart="165dp"
-        android:layout_marginLeft="165dp"
-        android:layout_marginTop="220dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stocktxtb"
+            android:text="Stock"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="165dp"
+            android:layout_marginLeft="165dp"
+            android:layout_marginTop="220dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,15 +78,15 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="220dp" />
         <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editorialtxt"
-        android:text="Editorial producto"
-        android:textSize="20dp"
-        android:textColor="@android:color/black"
-        android:layout_marginStart="165dp"
-        android:layout_marginLeft="165dp"
-        android:layout_marginTop="260dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editorialtxtb"
+            android:text="Editorial producto"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="165dp"
+            android:layout_marginLeft="165dp"
+            android:layout_marginTop="260dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,7 +100,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/idtxt"
+            android:id="@+id/idtxtb"
             android:text="Id"
             android:textSize="20dp"
             android:gravity="center"
@@ -122,7 +120,7 @@
             android:layout_marginTop="50dp" />
 
         <TextView
-            android:id="@+id/preciotxt"
+            android:id="@+id/preciotxtb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="165dp"
@@ -145,7 +143,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/descuentotxt"
+            android:id="@+id/descuentotxtb"
             android:text="Descuento producto"
             android:textSize="20dp"
             android:textColor="@android:color/black"
@@ -165,7 +163,7 @@
         <EditText
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:id="@+id/cantidadtxt"
+            android:id="@+id/cantidadtxtb"
             android:text="1"
             android:textSize="30dp"
             android:gravity="center"
@@ -183,25 +181,25 @@
             android:layout_marginStart="150dp"
             android:layout_marginLeft="150dp"/>
         <ImageButton
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/ic_add_shopping_cart"
-        android:id="@+id/añadirbtn"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="450dp"/>
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_add_shopping_cart"
+            android:id="@+id/añadirbtnb"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="450dp"/>
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/ic_share"
-            android:id="@+id/compartirbtn"
+            android:id="@+id/compartirbtnb"
             android:layout_marginStart="180dp"
             android:layout_marginLeft="180dp"
             android:layout_marginTop="450dp"/>
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/likebtn"
+            android:id="@+id/likebtnb"
             android:background="@drawable/ic_favorite_border"
             android:layout_marginTop="450dp"
             android:layout_marginStart="270dp"
@@ -209,3 +207,4 @@
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
+

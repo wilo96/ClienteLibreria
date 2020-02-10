@@ -1,8 +1,10 @@
 package com.example.clientelib;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,21 +16,19 @@ import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class Productos extends AppCompatActivity {
+public class ResBuscar extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -37,41 +37,59 @@ public class Productos extends AppCompatActivity {
     private ImageButton compartir;
     private TextView cantidad;
     private MainActivity principal;
-    AdaptadorBusca prodbus = new AdaptadorBusca();
-    Adaptador prod = new Adaptador();
+
+    ServicioGet sg = new ServicioGet();
+    String prods;
+    JSONObject jsonOb;
+    String pro[];
+    URL url;
+    Bitmap bit;
+    private int num = 1;
+    Items it;
+    int cod;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_productos);
-        carrito=(ImageButton)findViewById(R.id.añadirbtn);
-        like=(ImageButton)findViewById(R.id.likebtn);
-        compartir=(ImageButton)findViewById(R.id.compartirbtn);
+        setContentView(R.layout.activity_res_buscar);
+        carrito = (ImageButton) findViewById(R.id.añadirbtnb);
+        like = (ImageButton) findViewById(R.id.likebtnb);
+        compartir = (ImageButton) findViewById(R.id.compartirbtnb);
 
 
-
-        cantidad=(TextView)findViewById(R.id.cantidadtxt);
-
-        ArrayList<Items> listaItems = new ArrayList<>();
+        cantidad = (TextView) findViewById(R.id.cantidadtxtb);
+        cod= Integer.parseInt(getIntent().getStringExtra("id"));
+        ArrayList<itemsBuscar> listaItems = new ArrayList<>();
         //listaItems.add(new Items(R.drawable.ic_android1,"Linea 1","Linea 2"));
         //listaItems.add(new Items(R.drawable.ic_announcement,"Linea 3","Linea 4"));
-       // listaItems.add(new Items(R.drawable.ic_android1,"Linea 5","Linea 6"));
+        // listaItems.add(new Items(R.drawable.ic_android1,"Linea 5","Linea 6"));
 
-        recyclerView = findViewById(R.id.listaProds);
+        prods = sg.getBuscarLibro(cod);
+        try {
+            JSONArray jsonArray = new JSONArray(prods);
+            SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
+            String usuariocli = prefs.getString("cedula","");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                jsonOb = jsonArray.getJSONObject(i);
+                bit = BitmapFactory.decodeStream((InputStream) new URL(jsonOb.optString("imagen")).getContent());
+                //Log.d("Salida del Select ",jsonOb.optString("titulo"));
+
+                //System.out.println("------------------------- "+jsonOb.toString());
+                listaItems.add(new itemsBuscar(bit, jsonOb.optString("titulo"), jsonOb.optString("autor"), jsonOb.optString("codigo"), jsonOb.optString("editorial"), jsonOb.optString("precio"), jsonOb.optString("stock"), jsonOb.optString("descuento"),usuariocli));
+                //Toast.makeText(getApplicationContext(),prods,Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        recyclerView = findViewById(R.id.listaBusc);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new Adaptador(listaItems);
+        adapter = new AdaptadorBusca(listaItems);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-
-        String usuario= getFromSharedPreferences("usuario");
-
-        System.out.println("usuario de shared preferences"+usuario);
-        Toast.makeText(getApplicationContext(),"Bienvenid@ "+usuario,Toast.LENGTH_LONG).show();
-
-        //System.out.println(principal.cargarPreferencias()); 
+        //System.out.println(principal.cargarPreferencias());
     }
 
     @Override
@@ -84,39 +102,34 @@ public class Productos extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
-        final String cedu = prefs.getString("cedulas","");
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.Precompra:
                 try {
                     Intent i = new Intent(this, precompra.class);
-                    i.putExtra("ce",cedu);
                     startActivityForResult(i, 0);
-                }catch(Exception e){
+                } catch (Exception e) {
 
                 }
                 return true;
             case R.id.Direccion:
                 try {
                     Intent i = new Intent(this, direcciones.class);
-                    i.putExtra("ce",cedu);
                     startActivityForResult(i, 0);
-                }catch(Exception e){
+                } catch (Exception e) {
 
                 }
                 return true;
             case R.id.Tarjeta:
                 try {
                     Intent i = new Intent(this, Tarjetas.class);
-                    i.putExtra("ce",cedu);
                     startActivityForResult(i, 0);
-                }catch(Exception e){
+                } catch (Exception e) {
 
                 }
                 return true;
             case R.id.Buscarmenu:
-                try{
+                try {
 
                     AlertDialog.Builder alert = new AlertDialog.Builder(this);
                     final EditText edittext = new EditText(getApplicationContext());
@@ -132,10 +145,6 @@ public class Productos extends AppCompatActivity {
                             //OR
                             String buscarl = edittext.getText().toString();
                             sg.getBuscarLibro(Integer.parseInt(buscarl));
-                            Intent i = new Intent(getApplicationContext(),ResBuscar.class);
-                            i.putExtra("id",buscarl);
-                            startActivity(i);
-
                         }
                     });
 
@@ -146,10 +155,9 @@ public class Productos extends AppCompatActivity {
                     });
 
                     alert.show();
-                }catch(Exception e){
+                } catch (Exception e) {
 
                 }
-                return true;
             case R.id.salirm:
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(i);
@@ -159,15 +167,8 @@ public class Productos extends AppCompatActivity {
         }
     }
 
-    private String getFromSharedPreferences(String usuario) {
-        //SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-        //SharedPreferences sharedPref=getBaseContext().getSharedPreferences("guardarUsuario", MODE_PRIVATE);
-        //String user= sharedPref.getString("usuario","");
-        SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
-        String user = prefs.getString("nombre","");
-        return user;
-    }
-
-
 
 }
+
+
+

@@ -1,6 +1,8 @@
 package com.example.clientelib;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +13,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class AdaptadorTarj extends RecyclerView.Adapter<AdaptadorTarj.ViewHolder> {
     int num=1;
     private ArrayList<itemsTarjeta> listaItems;
     private ServicioGet sg = new ServicioGet();
-
+    private static WeakReference<Context> co;
 
 
 

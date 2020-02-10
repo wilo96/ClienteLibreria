@@ -8,5 +8,12 @@
         android:title="Directarj"
         android:visible="true"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/salirdr"
+        android:enabled="true"
+        android:icon="@drawable/ic_exit"
+        android:title="Item"
+        android:visible="true"
+        app:showAsAction="always" />
 
 </menu>

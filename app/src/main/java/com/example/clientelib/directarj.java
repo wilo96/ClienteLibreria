@@ -24,6 +24,7 @@ public class directarj extends AppCompatActivity{
     Spinner listadirec, listatarj;
     String direccion, tarjeta;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,10 +64,12 @@ public class directarj extends AppCompatActivity{
 
             }
         });
+        SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
+        String cedu = prefs.getString("cedula","");
         direc= new ArrayList<String>();
-        direc=sg.getDirecciones();
+        direc=sg.getDirecciones(cedu);
         tarj=new ArrayList<String>();
-        tarj=sg.getTarjetas();
+        tarj=sg.getTarjetas(cedu);
         direcciones= new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item, direc);
         listadirec.setAdapter(direcciones);
         tarjetas= new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item, tarj);

@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     editor.putString("cedula", cedula);
                     editor.putString("telefono",telefono);
                     editor.commit();
+
                     //i.putExtra("cedula",cedula);
                     //i.putExtra("nombre",nombre);
                     startActivity(i);

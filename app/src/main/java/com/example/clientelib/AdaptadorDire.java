@@ -1,5 +1,6 @@
 package com.example.clientelib;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,18 +14,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class AdaptadorDire extends RecyclerView.Adapter<AdaptadorDire.ViewHolder> {
     int num=1;
     private ArrayList<itemsDirec> listaItems;
     private ServicioGet sg = new ServicioGet();
-
-
+    private static WeakReference<Context> co;
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public EditText callep, calles, numcasa, prov, ciud;
         public TextView id;
         public ImageButton eliminar;
+
+
 
 
         public ViewHolder(@NonNull View itemView) {

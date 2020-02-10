@@ -100,6 +100,9 @@ public class direcciones extends AppCompatActivity {
 
                 }
                 return true;
+            case R.id.salirdr:
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
 
             default:
                 return super.onOptionsItemSelected(item);

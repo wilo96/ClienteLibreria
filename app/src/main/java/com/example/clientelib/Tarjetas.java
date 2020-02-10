@@ -82,6 +82,9 @@ private ServicioGet sg= new ServicioGet();
 
                 }
                 return true;
+            case R.id.salirli:
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
             default:
                 return super.onOptionsItemSelected(item);
         }

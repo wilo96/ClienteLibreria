@@ -68,8 +68,9 @@ public class precompra extends AppCompatActivity {
        // listaItems.add(new ItemsPre(R.drawable.ic_android1,"Linea 1","Linea 2","Linea 3","Linea 4"));
        // listaItems.add(new ItemsPre(R.drawable.ic_android1,"Linea 5","Linea 6","Linea 7","Linea 8"));
         // listaItems.add(new ItemsPre(R.drawable.ic_android1,"Linea 9","Linea 10","Linea 11","Linea 12"));
-
-        prods=sg.precompra();
+        SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
+        String cedu = prefs.getString("cedula","");
+        prods=sg.precompra(cedu);
         System.out.println("Esto me imprime de lo que tengo en carrito"+prods);
         parteA=prods.split(";");
 
@@ -183,6 +184,9 @@ int aceptar=0;
 
                 dialogo1.show();*/
                 return true;
+            case R.id.salirpr:
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
 
             default:
                 return super.onOptionsItemSelected(item);

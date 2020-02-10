@@ -9,6 +9,13 @@
         android:visible="true"
         app:showAsAction="always" />
     <item
+        android:id="@+id/Buscarmenu"
+        android:enabled="true"
+        android:icon="@drawable/ic_search"
+        android:title="Search"
+        android:visible="true"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/Direccion"
         android:enabled="true"
         android:icon="@drawable/ic_map"
@@ -22,4 +29,12 @@
         android:title="Item"
         android:visible="true"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/salirm"
+        android:enabled="true"
+        android:icon="@drawable/ic_exit"
+        android:title="Item"
+        android:visible="true"
+        app:showAsAction="always" />
+
 </menu>

@@ -27,7 +27,8 @@ public class prefactura extends AppCompatActivity {
     private TableRow detalle;
     private TextView subt, total, usuario, direc, telefonol, cedula, descuentopt;
     double subtotalpago, totalpago, descuentopago;
-    String datos = sg.precompra();
+
+    String datos;
 
 
     @Override
@@ -53,6 +54,7 @@ public class prefactura extends AppCompatActivity {
         cedula.setText(cedu);
         usuario.setText(nombre);
         telefonol.setText(telefono);
+        datos = sg.precompra(cedu);
 
 
         //Toast.makeText(getApplicationContext(),"Aqui mandaremos y pagamos "+direccion,Toast.LENGTH_LONG).show();
@@ -142,6 +144,9 @@ public class prefactura extends AppCompatActivity {
 
                 dialogo1.show();
                 return true;
+            case R.id.salirco:
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
 
             default:
                 return super.onOptionsItemSelected(item);

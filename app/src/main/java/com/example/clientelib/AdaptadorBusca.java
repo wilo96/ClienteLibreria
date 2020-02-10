@@ -1,7 +1,5 @@
 package com.example.clientelib;
 
-import android.app.ActionBar;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,27 +9,19 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder>  {
+public class AdaptadorBusca extends RecyclerView.Adapter<AdaptadorBusca.ViewHolder>  {
     int num=1;
-    private ArrayList<Items> listaItems;
-    private MainActivity ma= new MainActivity();
+    private ArrayList<itemsBuscar> listaItems;
     private ServicioGet sg= new ServicioGet();
-    public Context con;
     private String cedulacliente;
 
-    public Adaptador() {
+    public AdaptadorBusca() {
 
     }
 
@@ -46,37 +36,37 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder>  {
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public EditText cantidad;
         public ImageView imageView;
-        public TextView titulo, autor, id, descuento, precio, editorial, stock,cedula;
+        public TextView titulo, autor, id, descuento, precio, editorial, stock, cedulacl;
         public ImageButton mas, menos,carro, like, compartir;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView=itemView.findViewById(R.id.foto1);
-            cedula=itemView.findViewById(R.id.cedulacli);
-            titulo =itemView.findViewById(R.id.Texto1);
-            autor =itemView.findViewById(R.id.Texto2);
-            id=itemView.findViewById(R.id.idtxt);
-            descuento=itemView.findViewById(R.id.descuentotxt);
-            precio=itemView.findViewById(R.id.preciotxt);
-            editorial=itemView.findViewById(R.id.editorialtxt);
-            stock=itemView.findViewById(R.id.stocktxt);
-            carro=itemView.findViewById(R.id.añadirbtn);
-            like=itemView.findViewById(R.id.likebtn);
-            compartir=itemView.findViewById(R.id.compartirbtn);
-            cantidad=itemView.findViewById(R.id.cantidadtxt);
+            imageView=itemView.findViewById(R.id.foto1b);
+            titulo =itemView.findViewById(R.id.Texto1b);
+            cedulacl=itemView.findViewById(R.id.cedulaclib);
+            autor =itemView.findViewById(R.id.Texto2b);
+            id=itemView.findViewById(R.id.idtxtb);
+            descuento=itemView.findViewById(R.id.descuentotxtb);
+            precio=itemView.findViewById(R.id.preciotxtb);
+            editorial=itemView.findViewById(R.id.editorialtxtb);
+            stock=itemView.findViewById(R.id.stocktxtb);
+            carro=itemView.findViewById(R.id.añadirbtnb);
+            like=itemView.findViewById(R.id.likebtnb);
+            compartir=itemView.findViewById(R.id.compartirbtnb);
+            cantidad=itemView.findViewById(R.id.cantidadtxtb);
 
         }
     }
 
-    public Adaptador(ArrayList<Items> listItems){
+    public AdaptadorBusca(ArrayList<itemsBuscar> listItems){
         listaItems=listItems;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.items, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_items_buscar, parent, false);
         ViewHolder vh= new ViewHolder(v);
         return vh;
 
@@ -84,15 +74,15 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder>  {
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        final Items curentItem = listaItems.get(position);
+        final itemsBuscar curentItem = listaItems.get(position);
 
         holder.imageView.setImageBitmap(curentItem.getmImageResources());
         holder.titulo.setText(curentItem.getTitulo());
         holder.autor.setText(curentItem.getAutor());
         holder.stock.setText(curentItem.getStock());
+        holder.cedulacl.setText(curentItem.getCedula());
         holder.editorial.setText(curentItem.getEditorial());
         holder.precio.setText(curentItem.getPrecio());
-        holder.cedula.setText(curentItem.getCedula());
         holder.descuento.setText(curentItem.getDescuento());
         holder.id.setText(curentItem.getId());
         holder.carro.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +98,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder>  {
                 double subtL = valL*cant;
 
                 System.out.println("Esta es la posicion que estaba seleccionando "+posicion+" "+cant+" "+desc+" "+prec+" "+String.format("%.2f", valL)+" "+String.format("%.2f", subtL));
-                sg.carrito(posicion,cantidad,precio,descuento,String.valueOf(subtL),holder.cedula.getText().toString());
+                sg.carrito(posicion,cantidad,precio,descuento,String.valueOf(subtL),holder.cedulacl.getText().toString());
             }
         });
         holder.compartir.setOnClickListener(new View.OnClickListener() {

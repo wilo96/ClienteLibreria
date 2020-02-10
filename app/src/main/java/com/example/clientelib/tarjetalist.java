@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
@@ -38,8 +40,9 @@ public class tarjetalist extends AppCompatActivity {
         //listaItems.add(new Items(R.drawable.ic_android1,"Linea 1","Linea 2"));
         //listaItems.add(new Items(R.drawable.ic_announcement,"Linea 3","Linea 4"));
         // listaItems.add(new Items(R.drawable.ic_android1,"Linea 5","Linea 6"));
-
-        tarjets=sg.getDataTarj();
+        SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
+        String cedu = prefs.getString("cedula","");
+        tarjets=sg.getDataTarj(cedu);
         try {
             JSONArray jsonArray = new JSONArray(tarjets);
 

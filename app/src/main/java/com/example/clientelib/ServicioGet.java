@@ -1,8 +1,12 @@
 package com.example.clientelib;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.StrictMode;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,7 +18,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServicioGet {
+public class ServicioGet extends AppCompatActivity {
     String direc="http://192.168.1.106";
 
     public String getData(String correo, String contra)
@@ -131,10 +135,10 @@ public class ServicioGet {
     }
 
 
-    public String getDataDirec()
+    public String getDataDirec(String cedu)
     {
         String datosres = null;
-        String url =direc+":8080/proyectoInterciclo/srv/libros/listadirec";
+        String url =direc+":8080/proyectoInterciclo/srv/libros/listadirec?cedu="+cedu;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
@@ -187,10 +191,66 @@ public class ServicioGet {
 
     }
 
-    public String getDataTarj()
+    public String getBuscarLibro(int id)
     {
         String datosres = null;
-        String url =direc+":8080/proyectoInterciclo/srv/libros/listatarj";
+        String url =direc+":8080/proyectoInterciclo/srv/libros/buscalibro?libro="+id;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        URL urlc = null;
+        HttpURLConnection con;
+        String json ="";
+        JSONObject jsonOb;
+        try{
+            urlc= new URL(url);
+            con = (HttpURLConnection) urlc.openConnection();
+
+            con.setRequestMethod("GET");
+
+            con.connect();
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+            String inutline;
+            StringBuffer response = new StringBuffer();
+
+
+            String respuestas[];
+
+            while((inutline = br.readLine()) != null)
+            {
+                response.append(inutline);
+            }
+
+            json="["+response.toString()+"]";
+            respuestas=json.substring(10,(json.length()-1)).split(",");
+            /*for(int i =0; i<respuestas.length;i++){
+                int fin = respuestas[i].length();
+                respuestas[i]=respuestas[i].substring(respuestas[i].indexOf("=")+1, fin);
+                datosres=datosres+respuestas[i]+";";
+                System.out.println(respuestas[i]);
+
+            }*/
+            System.out.println("Esto manda "+json);
+            /*JSONArray jsonArray = new JSONArray(json);
+
+            for(int i = 0; i< jsonArray.length();i++){
+                jsonOb = jsonArray.getJSONObject(i);
+                Log.d("Salida del Select ",jsonOb.optString("titulo"));
+                System.out.println("------------------------- "+jsonOb.toString());
+            }*/
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return json;
+
+    }
+
+    public String getDataTarj(String cedu)
+    {
+        String datosres = null;
+        String url =direc+":8080/proyectoInterciclo/srv/libros/listatarj?cedu="+cedu;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
@@ -243,10 +303,11 @@ public class ServicioGet {
 
     }
 
-    public ArrayList<String> getDirecciones()
+    public ArrayList<String> getDirecciones(String cedu)
     {
         String datosres = null;
-        String url =direc+":8080/proyectoInterciclo/srv/libros/listadirec";
+
+        String url =direc+":8080/proyectoInterciclo/srv/libros/listadirec?cedu="+cedu;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
@@ -303,10 +364,11 @@ public class ServicioGet {
     }
 
 
-    public ArrayList<String> getTarjetas()
+    public ArrayList<String> getTarjetas(String cedu)
     {
         String datosres = null;
-        String url =direc+":8080/proyectoInterciclo/srv/libros/listatarj";
+
+        String url =direc+":8080/proyectoInterciclo/srv/libros/listatarj?cedu="+cedu;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
