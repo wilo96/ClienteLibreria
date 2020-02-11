@@ -7,11 +7,12 @@ import android.graphics.Bitmap;
 public class ItemsPre extends AppCompatActivity {
     private String titulo;
     private String id, precio, descuento, subtotal, idcar;
-    private String cantidad;
+    private String cantidad, ceducli;
 
-    public ItemsPre( String titulos, String ids, String precios, String cantidades, String descuentos, String subtotales, String idcars)
+    public ItemsPre( String titulos, String ids, String precios, String cantidades, String descuentos, String subtotales, String idcars, String ceduclis)
     {
         titulo =titulos;
+        ceducli=ceduclis;
         id=ids;
         precio=precios;
         cantidad=cantidades;
@@ -20,6 +21,7 @@ public class ItemsPre extends AppCompatActivity {
         idcar = idcars;
 
     }
+    public String getCeducli(){return ceducli;}
     public String getCantidad(){return cantidad;}
     public String getTitulo() {
         return titulo;

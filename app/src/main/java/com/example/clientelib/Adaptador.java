@@ -122,6 +122,20 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder>  {
                 v.getContext().startActivity(intent);
             }
         });
+        holder.like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sg.like(holder.id.getText().toString(),holder.cedula.getText().toString());
+                if(sg.like(holder.id.getText().toString(),holder.cedula.getText().toString()).equals("ok")){
+                    Toast.makeText(v.getContext(),"Se dio like",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    Toast.makeText(v.getContext(),"El like ya estaba dado",Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
 
 
     }

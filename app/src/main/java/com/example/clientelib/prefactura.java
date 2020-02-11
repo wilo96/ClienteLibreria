@@ -128,11 +128,14 @@ public class prefactura extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
                         String cedu = prefs.getString("cedula","");
-                        sg.precompraConf(cedu,1,1);
+                        SharedPreferences prefsdt = getSharedPreferences("datosfin", Context.MODE_PRIVATE);
+                        String direcc = prefsdt.getString("direc", "");
+                        String tarje = prefsdt.getString("tarj", "");
+                        sg.precompraConf(cedu,Integer.parseInt(direcc.substring(0,tarje.indexOf(" "))),Integer.parseInt(direcc.substring(0,tarje.indexOf(" "))));
 
 
-                        Toast.makeText(getApplicationContext(), cedu, Toast.LENGTH_LONG).show();
-                        ventana();
+                        Toast.makeText(getApplicationContext(), cedu+";"+direcc.substring(0,direcc.indexOf(" "))+";"+tarje.substring(0,tarje.indexOf(" ")), Toast.LENGTH_LONG).show();
+                       // ventana();
                     }
 
                 }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -143,8 +146,9 @@ public class prefactura extends AppCompatActivity {
                 });
 
                 dialogo1.show();
-                return true;
+
             case R.id.salirco:
+                finish();
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(i);
 

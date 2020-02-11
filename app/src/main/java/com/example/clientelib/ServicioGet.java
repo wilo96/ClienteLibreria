@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServicioGet extends AppCompatActivity {
-    String direc="http://192.168.1.106";
+    String direc="http://35.231.128.10";
 
     public String getData(String correo, String contra)
     {
         String datosres = null;
-        String url =direc+":8080/proyectoInterciclo/srv/Usuarios/buscarusu?correo="+correo+"&contra="+contra;
+        String url =direc+"/proyectoInterciclo/srv/Usuarios/buscarusu?correo="+correo+"&contra="+contra;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
@@ -57,10 +57,10 @@ public class ServicioGet extends AppCompatActivity {
                 int fin = respuestas[i].length();
                 respuestas[i]=respuestas[i].substring(respuestas[i].indexOf("=")+1, fin);
                 datosres=datosres+respuestas[i]+";";
-                System.out.println(respuestas[i]);
+                //System.out.println(respuestas[i]);
 
             }
-            System.out.println("Esto manda "+json);
+            //System.out.println("Esto manda "+json);
             //JSONArray jsonArray=null;
             //jsonArray = new JSONArray(json);
 
@@ -81,7 +81,7 @@ public class ServicioGet extends AppCompatActivity {
     public String getDataProds()
     {
         String datosres = null;
-        String url =direc+":8080/proyectoInterciclo/srv/libros/listLibros";
+        String url =direc+"/proyectoInterciclo/srv/libros/listLibros";
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
@@ -138,7 +138,7 @@ public class ServicioGet extends AppCompatActivity {
     public String getDataDirec(String cedu)
     {
         String datosres = null;
-        String url =direc+":8080/proyectoInterciclo/srv/libros/listadirec?cedu="+cedu;
+        String url =direc+"/proyectoInterciclo/srv/libros/listadirec?cedu="+cedu;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
@@ -194,7 +194,7 @@ public class ServicioGet extends AppCompatActivity {
     public String getBuscarLibro(int id)
     {
         String datosres = null;
-        String url =direc+":8080/proyectoInterciclo/srv/libros/buscalibro?libro="+id;
+        String url =direc+"/proyectoInterciclo/srv/libros/buscalibro?libro="+id;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
@@ -250,7 +250,7 @@ public class ServicioGet extends AppCompatActivity {
     public String getDataTarj(String cedu)
     {
         String datosres = null;
-        String url =direc+":8080/proyectoInterciclo/srv/libros/listatarj?cedu="+cedu;
+        String url =direc+"/proyectoInterciclo/srv/libros/listatarj?cedu="+cedu;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
@@ -307,7 +307,7 @@ public class ServicioGet extends AppCompatActivity {
     {
         String datosres = null;
 
-        String url =direc+":8080/proyectoInterciclo/srv/libros/listadirec?cedu="+cedu;
+        String url =direc+"/proyectoInterciclo/srv/libros/listadirec?cedu="+cedu;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;
@@ -368,7 +368,7 @@ public class ServicioGet extends AppCompatActivity {
     {
         String datosres = null;
 
-        String url =direc+":8080/proyectoInterciclo/srv/libros/listatarj?cedu="+cedu;
+        String url =direc+"/proyectoInterciclo/srv/libros/listatarj?cedu="+cedu;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         URL urlc = null;

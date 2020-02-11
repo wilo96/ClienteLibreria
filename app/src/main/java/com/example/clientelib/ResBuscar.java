@@ -159,6 +159,7 @@ public class ResBuscar extends AppCompatActivity {
 
                 }
             case R.id.salirm:
+                finish();
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(i);
 

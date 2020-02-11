@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -151,6 +152,7 @@ public class Productos extends AppCompatActivity {
                 }
                 return true;
             case R.id.salirm:
+                finish();
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(i);
 

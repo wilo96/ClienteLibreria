@@ -36,7 +36,7 @@ public class AdaptadorBusca extends RecyclerView.Adapter<AdaptadorBusca.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public EditText cantidad;
         public ImageView imageView;
-        public TextView titulo, autor, id, descuento, precio, editorial, stock, cedulacl;
+        public TextView titulo, autor, id, descuento, precio, editorial, stock, cedulacl, idca;
         public ImageButton mas, menos,carro, like, compartir;
 
 
@@ -46,6 +46,7 @@ public class AdaptadorBusca extends RecyclerView.Adapter<AdaptadorBusca.ViewHold
             titulo =itemView.findViewById(R.id.Texto1b);
             cedulacl=itemView.findViewById(R.id.cedulaclib);
             autor =itemView.findViewById(R.id.Texto2b);
+            idca=itemView.findViewById(R.id.idcar);
             id=itemView.findViewById(R.id.idtxtb);
             descuento=itemView.findViewById(R.id.descuentotxtb);
             precio=itemView.findViewById(R.id.preciotxtb);

@@ -31,7 +31,7 @@ public class AdaptadorPre extends RecyclerView.Adapter<AdaptadorPre.ViewHolder> 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public EditText cantidad;
-        public TextView titulo,id,precio, subtotal, idcar, descu;
+        public TextView titulo,id,precio, subtotal, idcar, descu, ceducli;
         public ImageButton eliminar, modificar;
 
 
@@ -46,6 +46,7 @@ public class AdaptadorPre extends RecyclerView.Adapter<AdaptadorPre.ViewHolder> 
             subtotal=itemView.findViewById(R.id.subtotal);
             modificar=itemView.findViewById(R.id.modifbtn);
             descu=itemView.findViewById(R.id.desc);
+            ceducli=itemView.findViewById(R.id.cedulaclibp);
 
         }
     }
@@ -72,22 +73,25 @@ public class AdaptadorPre extends RecyclerView.Adapter<AdaptadorPre.ViewHolder> 
         holder.id.setText(curentItem.getId());
         holder.idcar.setText(curentItem.getIdcar());
         holder.cantidad.setText(curentItem.getCantidad());
+        holder.ceducli.setText(curentItem.getCeducli());
         holder.descu.setText(curentItem.getDescuento());
         holder.subtotal.setText(String.valueOf(Double.valueOf(Double.valueOf(curentItem.getPrecio()) - (Double.valueOf(curentItem.getPrecio())*(Double.valueOf(curentItem.getDescuento())/100)))*Double.valueOf(curentItem.getCantidad())));
         holder.eliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sg.elimitcarrito(holder.idcar.getText().toString());
-                Intent intent = new Intent (v.getContext(), precompra.class);
-                v.getContext().startActivity(intent);
+                //Intent intent = new Intent (v.getContext(), precompra.class);
+                //v.getContext().startActivity(intent);
+                System.out.println("Esto es lo que elimina "+holder.idcar.getText().toString());
             }
         });
         holder.modificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sg.modifcarrito(holder.idcar.getText().toString(),holder.cantidad.getText().toString(),holder.precio.getText().toString(),holder.descu.getText().toString());
-                Intent intent = new Intent (v.getContext(), precompra.class);
-                v.getContext().startActivity(intent);
+                sg.modifcarrito(holder.ceducli.getText().toString(),holder.id.getText().toString(),holder.cantidad.getText().toString(),holder.precio.getText().toString(),holder.descu.getText().toString(), holder.idcar.getText().toString());
+                //Intent intent = new Intent (v.getContext(), precompra.class);
+                //v.getContext().startActivity(intent);
+                System.out.println("Esto es lo que pasa a modificar "+holder.ceducli.getText().toString()+";"+holder.id.getText().toString()+";"+holder.cantidad.getText().toString()+";"+holder.precio.getText().toString()+";"+holder.descu.getText().toString()+";"+holder.idcar.getText().toString());
             }
         });
 

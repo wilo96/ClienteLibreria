@@ -39,7 +39,7 @@ public class precompra extends AppCompatActivity {
     private ImageButton compartir;
     private EditText cantidad;
     private MainActivity principal;
-    private TextView descuento, id, precio, subtotal;
+    private TextView descuento, id, precio, subtotal, idca,ceducli;
     ServicioGet sg = new ServicioGet();
     String prods;
     JSONObject jsonOb;
@@ -60,6 +60,7 @@ public class precompra extends AppCompatActivity {
         compartir=(ImageButton)findViewById(R.id.compartirbtn);
         descuento=(TextView)findViewById(R.id.descuentotxt);
         id=(TextView)findViewById(R.id.idtxt2);
+        idca=(TextView)findViewById(R.id.idcar);
         precio=(TextView)findViewById(R.id.preciotxt2);
         subtotal=(TextView)findViewById(R.id.subtotal);
         cantidad=(EditText) findViewById(R.id.cantidadtxt2);
@@ -70,6 +71,8 @@ public class precompra extends AppCompatActivity {
         // listaItems.add(new ItemsPre(R.drawable.ic_android1,"Linea 9","Linea 10","Linea 11","Linea 12"));
         SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
         String cedu = prefs.getString("cedula","");
+        ceducli=(TextView)findViewById(R.id.cedulaclibp);
+
         prods=sg.precompra(cedu);
         System.out.println("Esto me imprime de lo que tengo en carrito"+prods);
         parteA=prods.split(";");
@@ -82,7 +85,7 @@ public class precompra extends AppCompatActivity {
                 System.out.println(parteB[z]);
             }
             try {
-                listaItems.add(new ItemsPre(parteB[4].substring(1, parteB[4].length() - 1), parteB[6], parteB[2], parteB[1], parteB[3], String.valueOf(Integer.parseInt(parteB[1]) * Double.valueOf(parteB[2])),parteB[0].replace("[","")));
+                listaItems.add(new ItemsPre(parteB[4].substring(1, parteB[4].length() - 1), parteB[6], parteB[2], parteB[1], parteB[3], String.valueOf(Integer.parseInt(parteB[1]) * Double.valueOf(parteB[2])),parteB[0].replace("[",""),cedu));
             }catch(Exception e)
             {
                 AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
@@ -94,10 +97,10 @@ public class precompra extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         // sg.carrito(id.getText().toString(),cantidad.getText().toString(),precio.getText().toString(),descuento.getText().toString(),subtotal.getText().toString());
                         aceptarnada=1;
-                       // SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
-                       // String cedu = prefs.getString("cedula","");
-                      //  sg.precompraConf(cedu,1,1);
-                      //  Toast.makeText(getApplicationContext(), cedu, Toast.LENGTH_LONG).show();
+                       SharedPreferences prefs = getSharedPreferences("pasamos",   Context.MODE_PRIVATE);
+                       String cedu = prefs.getString("cedula","");
+                       sg.precompraConf(cedu,1,1);
+                       Toast.makeText(getApplicationContext(), cedu, Toast.LENGTH_LONG).show();
 
                     }
                 });
@@ -183,8 +186,9 @@ int aceptar=0;
                 });
 
                 dialogo1.show();*/
-                return true;
+
             case R.id.salirpr:
+                finish();
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(i);
 
